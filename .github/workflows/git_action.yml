@@ -6,15 +6,17 @@ on:
     - main
 jobs:
   my-test:
-    runs-on: ubuntu-latest   
+    runs-on: ubuntu-latest
+    
     steps:
-       - name: test-testin
+       - name: print HELLO message in TESTING
          run: echo "hello world from testing"
           
-  my_deplot:
+  my_deploy:
     runs-on: ubuntu-latest
+    needs: [my-test]
     steps:
-      - name: test
+      - name: print HELLO message in DEPLOY
         run: echo "hello wolrd from deploy"
           
           
