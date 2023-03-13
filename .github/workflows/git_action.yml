@@ -12,7 +12,7 @@ on:
 jobs:
 
   my-test:
-    runs-on: ubuntu-latest
+    runs-on: test-runner
     
     steps:
        - name: print HELLO message in TESTING
@@ -21,7 +21,7 @@ jobs:
           echo "TESTING ENV -- ${{ env.PACKEG_NAME }}"
           
   my_deploy:
-    runs-on: ubuntu-latest
+    runs-on: test-runner
     needs: [my-test]
     
     
