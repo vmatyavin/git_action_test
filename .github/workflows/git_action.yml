@@ -43,7 +43,7 @@ jobs:
     
     steps:
       - name: run docker images 
-        run: docker run -p 80:8080 --name container  -d routeg/gitaction:${{ github.run_number }}
+        run: docker run -p 8080:80 --name container  -d routeg/gitaction:${{ github.run_number }}
       
       
         
