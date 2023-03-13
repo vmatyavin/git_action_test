@@ -18,7 +18,7 @@ jobs:
        - name: print HELLO message in TESTING
          run: |
           echo "hello world from testing"
-          echo: "TESTING ENV -- ${{ env.PACKEG_NAME }}"
+          echo "TESTING ENV -- ${{ env.PACKEG_NAME }}"
           
   my_deploy:
     runs-on: ubuntu-latest
