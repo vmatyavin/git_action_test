@@ -39,6 +39,7 @@ jobs:
         
   my-deploy:
     runs-on: test-runner
+    needs: [my-test]
     
     steps:
       - name: run docker images 
