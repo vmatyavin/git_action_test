@@ -32,12 +32,18 @@ jobs:
         with:
           push: true
           tags: routeg/gitaction:${{ github.run_number }}
-          
-          
+             
       - name: show docker images
         run:  docker images
         
         
+  my-deploy:
+    runs-on: test-runner
+    
+    steps:
+      - name: run docker images 
+        run: docker run -p 80:8080 --name container  -d routeg/gitaction:${{ github.run_number }}
+      
       
         
           
