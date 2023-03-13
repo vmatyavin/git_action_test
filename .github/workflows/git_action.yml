@@ -40,7 +40,7 @@ jobs:
         run: ls -la
 
       - name: git clonfile
-        run: action/checkout@v1
+        uses: action/checkout@v1
 
       - name: test dir_v2
         run: ls -la
