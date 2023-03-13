@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: routeg/gitaction:latest
+          tags: routeg/gitaction:${{ github.run_number }}
           
           
       - name: show docker images
