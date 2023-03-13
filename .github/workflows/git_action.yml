@@ -19,6 +19,8 @@ jobs:
          run: |
           echo "hello world from testing"
           echo "TESTING ENV -- ${{ env.PACKEG_NAME }}"
+          date
+          hostname
           
   my_deploy:
     runs-on: test-runner
