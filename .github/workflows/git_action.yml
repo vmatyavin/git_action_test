@@ -35,8 +35,15 @@ jobs:
           echo "hello world test1"
           echo "hello world test2"
           echo "hello world ${{ env.APPNAME }}"
-          
-          
+        
+      - name: test dir
+        run: ls -la
+
+      - name: git clonfile
+        run: action/checkout@v1
+
+      - name: test dir_v2
+        run: ls -la
           
           
           
