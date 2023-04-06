@@ -60,7 +60,7 @@ jobs:
       - name: run docker images 
         run: docker run -p 8082:80 --name container${{ github.run_number }}  -d routeg/gitaction:${{ github.run_number }}
         
-      - name: Save previous build number 
+      - name: Save previous build number  
         if: always()
         run: | 
          echo ${{ github.run_number }} > previous_build_number.txt
