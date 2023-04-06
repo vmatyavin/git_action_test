@@ -54,9 +54,9 @@ jobs:
         if: always()
         run: |
            if docker ps -a --format '{{.Names}}' | grep -q container$(cat previous_build_number.txt); then
-           docker stop container$(cat previous_build_number.txt)
-           docker rm container$(cat previous_build_number.txt)
-        
+              docker stop container$(cat previous_build_number.txt)
+              docker rm container$(cat previous_build_number.txt)
+           fi        
       # Сохраняем текущий номер сборки в файл previous_build_number.txt
       #- name: Remove previous container
       # run: |
