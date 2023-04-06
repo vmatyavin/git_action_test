@@ -42,6 +42,10 @@ jobs:
     needs: [my-test]
     
     steps:
+    
+      - name: Remove previous container
+        run: |
+          docker ps -a | grep container | awk '{print $1 }' | xargs -I {} docker stop {} | xargs -I {} docker rm {}
       - name: run docker images 
         run: docker run -p 8082:80 --name container${{ github.run_number }}  -d routeg/gitaction:${{ github.run_number }}
       
