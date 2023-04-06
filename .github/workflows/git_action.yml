@@ -45,7 +45,9 @@ jobs:
     
       - name: Save previous build number
         if: always()
-        run: echo ${{ github.run_number }} > previous_build_number.txt
+        run: | 
+         echo ${{ github.run_number }} > previous_build_number.txt
+         pwd
         
         
       - name: Stop and remove previous container
