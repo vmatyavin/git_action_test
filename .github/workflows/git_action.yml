@@ -43,9 +43,22 @@ jobs:
     
     steps:
     
-      - name: Remove previous container
+      - name: Save previous build number
+        if: always()
+        run: echo ${{ github.run_number }} > previous_build_number.txt
+        
+        
+      - name: Stop and remove previous container
+        if: always()
         run: |
-          docker ps -a | grep container | awk '{print $1 }' | xargs -I {} docker stop {} | xargs -I {} docker rm {}
+           if docker ps -a --format '{{.Names}}' | grep -q container$(cat previous_build_number.txt); then
+           docker stop container$(cat previous_build_number.txt)
+           docker rm container$(cat previous_build_number.txt)
+        
+      # Сохраняем текущий номер сборки в файл previous_build_number.txt
+      #- name: Remove previous container
+      # run: |
+      #    docker ps -a | grep container | awk '{print $1 }' | xargs -I {} docker stop {} | xargs -I {} docker rm {}
       - name: run docker images 
         run: docker run -p 8082:80 --name container${{ github.run_number }}  -d routeg/gitaction:${{ github.run_number }}
       
