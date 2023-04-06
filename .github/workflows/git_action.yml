@@ -43,7 +43,7 @@ jobs:
     
     steps:
     
-      - name: Save previous build number
+      - name: Save previous build number 
         if: always()
         run: | 
          echo ${{ github.run_number }} > previous_build_number.txt
