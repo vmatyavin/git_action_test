@@ -43,11 +43,7 @@ jobs:
     
     steps:
     
-      - name: Save previous build number 
-        if: always()
-        run: | 
-         echo ${{ github.run_number }} > previous_build_number.txt
-         pwd
+      
         
         
       - name: Stop and remove previous container
@@ -63,6 +59,12 @@ jobs:
       #    docker ps -a | grep container | awk '{print $1 }' | xargs -I {} docker stop {} | xargs -I {} docker rm {}
       - name: run docker images 
         run: docker run -p 8082:80 --name container${{ github.run_number }}  -d routeg/gitaction:${{ github.run_number }}
+        
+      - name: Save previous build number 
+        if: always()
+        run: | 
+         echo ${{ github.run_number }} > previous_build_number.txt
+         
       
       
         
