@@ -38,7 +38,7 @@ jobs:
         
         
   my-deploy:
-    runs-on: test-runner 
+    runs-on: test-runner  
     needs: [my-test]
     
     steps:
